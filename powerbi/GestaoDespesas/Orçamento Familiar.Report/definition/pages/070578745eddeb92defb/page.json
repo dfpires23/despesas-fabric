@@ -1,0 +1,10 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "070578745eddeb92defb",
+  "displayName": "Tooltip - Despesa Geral",
+  "displayOption": "ActualSize",
+  "height": 208,
+  "width": 320,
+  "visibility": "HiddenInViewMode",
+  "type": "Tooltip"
+}

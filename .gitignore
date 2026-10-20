@@ -1,0 +1,131 @@
+# 1. Operating Systems
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# 2. Editors and IDEs (local settings)
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# 3. Temporary Files and Logs
+*.log
+logs/
+*.tmp
+*.temp
+tmp/
+temp/
+*.swp
+*.swo
+*~
+# Office lock files (e.g. ~$budget.xlsx)
+~$*
+
+# 4. C / Assembly / RISC-V (build output)
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+*.elf
+*.map
+*.lst
+*.gcda
+*.gcno
+core.[0-9]*
+.gdb_history
+.cache/
+compile_commands.json
+
+# 5. Java / Maven / Gradle
+target/
+build/
+out/
+.gradle/
+*.class
+hs_err_pid*
+replay_pid*
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+# Packages (keep the wrappers, which are required for the build)
+*.jar
+*.war
+*.ear
+*.nar
+!.mvn/wrapper/maven-wrapper.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# 6. Python (and tools)
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+htmlcov/
+*.egg-info/
+dist/
+.ipynb_checkpoints/
+node_modules/
+
+# 7. Local Databases and Backups
+*.sqlite
+*.sqlite3
+*.db
+*.db3
+*.bak
+*.mdf
+*.ldf
+*.ndf
+
+# 8. Secrets and Credentials (NEVER commit)
+# `*.env` also covers `.env`
+*.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+credentials.json
+client_secret*.json
+*service-account*.json
+token.json
+token.pickle
+secrets.json
+*.local.json
+secrets/
+.secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# 9. Repository-specific
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+*.pbix

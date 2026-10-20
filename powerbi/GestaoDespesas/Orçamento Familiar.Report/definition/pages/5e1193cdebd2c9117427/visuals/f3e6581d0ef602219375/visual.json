@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "f3e6581d0ef602219375",
+  "position": {
+    "x": 624,
+    "y": 216,
+    "z": 4000,
+    "height": 288,
+    "width": 336,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "gauge",
+    "query": {
+      "queryState": {
+        "MaxValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Budget - Total"
+                }
+              },
+              "queryRef": "_calcs.€ Budget - Total",
+              "nativeQueryRef": "€ Budget - Total"
+            }
+          ]
+        },
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Budget - Essenciais"
+                }
+              },
+              "queryRef": "_calcs.€ Budget - Essenciais",
+              "nativeQueryRef": "€ Budget - Essenciais"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Real - Despesas Essenciais"
+                }
+              },
+              "queryRef": "_calcs.€ Real - Despesas Essenciais",
+              "nativeQueryRef": "€ Real - Despesas Essenciais"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_calcs"
+                  }
+                },
+                "Property": "€ Real - Despesas Essenciais"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

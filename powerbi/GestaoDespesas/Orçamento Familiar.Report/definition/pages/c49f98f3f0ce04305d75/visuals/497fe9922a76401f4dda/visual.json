@@ -1,0 +1,128 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "497fe9922a76401f4dda",
+  "position": {
+    "x": 976,
+    "y": 304,
+    "z": 4000,
+    "height": 768,
+    "width": 656,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendário"
+                    }
+                  },
+                  "Property": "Data"
+                }
+              },
+              "queryRef": "Calendário.Data",
+              "nativeQueryRef": "Data"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Real - Despesas"
+                }
+              },
+              "queryRef": "_calcs.€ Real - Despesas",
+              "nativeQueryRef": "€ Gasto Real",
+              "displayName": "€ Gasto Real"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Calendário"
+                  }
+                },
+                "Property": "Data"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {},
+          "selector": {
+            "metadata": "_calcs.€ Real - Despesas"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "944f6220cf91804435c5",
+        "ordinal": 0,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_calcs"
+              }
+            },
+            "Property": "€ Real - Despesas"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "41bc2c07a50669a4c37b",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Calendário"
+              }
+            },
+            "Property": "Data"
+          }
+        },
+        "type": "Categorical"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

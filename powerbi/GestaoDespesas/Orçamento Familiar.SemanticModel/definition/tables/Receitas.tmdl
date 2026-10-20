@@ -1,0 +1,62 @@
+table Receitas
+	lineageTag: 510e6a23-5ba6-4aae-821b-a75c9364920a
+
+	column 'Categoria Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 9c4b84df-cb2f-4b47-9283-071003188d57
+		summarizeBy: none
+		sourceColumn: Categoria Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		isHidden
+		formatString: dd-mm-yyyy
+		lineageTag: 9fb96eaa-f06a-4caa-8b9f-d99573faaf1d
+		summarizeBy: none
+		sourceColumn: Data
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Valor Recebido (€)'
+		dataType: double
+		lineageTag: 8e5a458d-ce34-451d-81ac-458deec78ba3
+		summarizeBy: none
+		sourceColumn: Valor Recebido (€)
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descrição
+		dataType: string
+		lineageTag: f299706a-4de7-42e5-af45-2ad973a63841
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Receitas = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Fact_Receitas = Source{[Schema="dbo",Item="vw_Fact_Receitas"]}[Data]
+				in
+				    dbo_vw_Fact_Receitas
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

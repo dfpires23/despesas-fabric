@@ -1,0 +1,62 @@
+@startuml target-architecture
+title Target Architecture — Phase 1 (Fabric)
+
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+
+database "Google Sheets\n(Despesas_Reais_DB)" as Sheets
+folder "SharePoint\n(Budget_*.xlsx)" as SharePoint
+
+package "Microsoft Fabric — Despesas-DEV workspace" {
+  folder "Lakehouse\n(DespesasDEV_Landing)\nraw file landing only" as Lakehouse
+  database "Warehouse\n(GestaoDespesasDW)\nstg / dw / dbo (views)" as Warehouse
+
+  rectangle "Pipeline: PL_Despesas_Master\n(scheduled — 12h DEV / 6h PROD)" as Pipeline {
+    [Copy Data:\nSharePoint -> Lakehouse] as CopyData
+    [Notebook:\n04_ingest_budget] as NBBudget
+    [Notebook:\n02_ingest_despesas] as NBDespesas
+    [Activity:\n03_notificar_telegram] as NBTelegram
+    [Activity:\n05_obras_report] as NBObras
+    [Notebook:\n01_ingest_feriados] as NBFeriados
+    [Script:\nupdate dw.Meta_Controlo] as ScriptMeta
+  }
+}
+
+queue "Telegram Bot API" as Telegram
+cloud "SMTP (Email)" as SMTP
+[Power BI\n(Import mode,\nWarehouse SQL endpoint)] as PBI
+
+SharePoint --> CopyData : Organizational account auth
+CopyData --> Lakehouse : raw xlsx (Binary copy)
+Lakehouse --> NBBudget : reads via /lakehouse/default/Files
+NBBudget --> Warehouse : stg.Budget -> sp_ProcessarBudget
+
+Sheets --> NBDespesas : gspread (service account)
+NBDespesas --> Warehouse : stg.DespesasReais -> sp_ProcessarDespesasReais
+
+Warehouse --> NBTelegram : SELECT WHERE Notificado_Telegram = 0
+NBTelegram --> Telegram : one message per expense
+NBTelegram --> Warehouse : UPDATE Notificado_Telegram = 1
+
+Warehouse --> NBObras : SELECT WHERE Notificado_Email = 0
+NBObras --> Lakehouse : saves PDF
+NBObras --> SMTP : sends email
+NBObras --> Warehouse : UPDATE Notificado_Email = 1
+
+Warehouse --> NBFeriados : year range from fact tables
+NBFeriados --> Warehouse : dbo.FeriadosPT, dbo.Dim_Calendario
+
+NBTelegram --> ScriptMeta : On Completion
+NBObras --> ScriptMeta : On Completion
+NBFeriados --> ScriptMeta : On Completion
+ScriptMeta --> Warehouse : dw.Meta_Controlo timestamp
+
+Warehouse --> PBI : dbo.vw_* views (Import mode)
+
+note right of Pipeline
+  Independent activities.
+  A Telegram/Obras failure
+  no longer blocks data loading.
+end note
+
+@enduml

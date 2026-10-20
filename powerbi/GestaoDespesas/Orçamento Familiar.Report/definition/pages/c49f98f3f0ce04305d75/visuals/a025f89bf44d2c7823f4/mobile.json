@@ -1,0 +1,36 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.2.0/schema.json",
+  "position": {
+    "x": 0,
+    "y": 0,
+    "z": 1000,
+    "height": 80,
+    "width": 36,
+    "tabOrder": 3000
+  },
+  "objects": {
+    "icon": [
+      {
+        "properties": {
+          "shapeType": {
+            "expr": {
+              "Literal": {
+                "Value": "'reset'"
+              }
+            }
+          },
+          "lineWeight": {
+            "expr": {
+              "Literal": {
+                "Value": "1L"
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "default"
+        }
+      }
+    ]
+  }
+}

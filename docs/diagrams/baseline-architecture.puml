@@ -1,0 +1,39 @@
+@startuml baseline-architecture
+title Current State (Baseline) — Pre-Fabric
+
+skinparam backgroundColor #FFFFFF
+skinparam componentStyle rectangle
+
+package "Personal PC" {
+  [Windows Task Scheduler] as Scheduler
+  [Python ETL\n(etl_master.py)] as ETL
+  [obras_report.py] as ObrasReport
+}
+
+database "Google Sheets\n(Despesas_Reais_DB)" as Sheets
+folder "Google Drive\n(Budget_*.xlsx)" as Drive
+database "SQL Server (local)\nstg / dw / dbo (views)" as SQLServer
+queue "Telegram Bot API" as Telegram
+cloud "SMTP (Email)" as SMTP
+[Power BI\n(Import mode)] as PBI
+[Power BI REST API\n+ Service Principal\n+ 15-min polling] as PBIRefresh
+
+Scheduler --> ETL : triggers (.bat)
+Sheets --> ETL : full sheet read
+Drive --> ETL : xlsx read (2x per run)
+ETL --> SQLServer : stg -> dw (stored procedures)
+ETL --> Telegram : batched notification\n(before SQL commit)
+ETL --> ObrasReport : triggers if Obras rows found
+ObrasReport --> Drive : saves PDF/Excel
+ObrasReport --> SMTP : sends email
+SQLServer --> PBI : dbo.vw_* views
+ETL --> PBIRefresh : triggers refresh
+PBIRefresh --> PBI : forces Import refresh
+
+note right of ETL
+  Monolithic script.
+  No logging/retry/alerting.
+  Only runs while the PC is on.
+end note
+
+@enduml

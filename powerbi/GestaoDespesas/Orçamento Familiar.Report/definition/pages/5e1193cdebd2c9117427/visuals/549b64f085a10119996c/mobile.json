@@ -1,0 +1,120 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.2.0/schema.json",
+  "position": {
+    "x": 54,
+    "y": 1240,
+    "z": 5000,
+    "height": 20,
+    "width": 252,
+    "tabOrder": 2000
+  },
+  "objects": {
+    "icon": [
+      {
+        "properties": {
+          "lineWeight": {
+            "expr": {
+              "Literal": {
+                "Value": "1L"
+              }
+            }
+          },
+          "horizontalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'right'"
+              }
+            }
+          },
+          "iconSize": {
+            "expr": {
+              "Literal": {
+                "Value": "15D"
+              }
+            }
+          },
+          "placement": {
+            "expr": {
+              "Literal": {
+                "Value": "'custom'"
+              }
+            }
+          },
+          "lineColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#9C9C9C'"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "default"
+        }
+      }
+    ],
+    "text": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      },
+      {
+        "properties": {
+          "horizontalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'center'"
+              }
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'Var. (%): variação em relação ao mês anterior'"
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "topMargin": {
+            "expr": {
+              "Literal": {
+                "Value": "3L"
+              }
+            }
+          },
+          "fontColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#9C9C9C'"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "selector": {
+          "id": "default"
+        }
+      }
+    ]
+  }
+}

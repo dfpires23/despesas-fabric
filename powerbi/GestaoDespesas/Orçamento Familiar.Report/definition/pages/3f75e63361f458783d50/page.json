@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "3f75e63361f458783d50",
+  "displayName": "Avaliação Anual - Geral",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "visualInteractions": [
+    {
+      "source": "9882b28634ce04b7f1ef",
+      "target": "7d0dd522174d1b9a59f7",
+      "type": "NoFilter"
+    }
+  ]
+}

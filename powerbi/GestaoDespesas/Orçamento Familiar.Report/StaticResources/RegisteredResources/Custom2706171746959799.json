@@ -1,0 +1,35 @@
+{
+  "name": "Custom",
+  "$schema": "https://raw.githubusercontent.com/microsoft/powerbi-desktop-samples/refs/heads/main/Report%20Theme%20JSON%20Schema/reportThemeSchema-2.150.json",
+  "textClasses": {
+    "callout": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+      "color": "#333333"
+    },
+    "title": {
+      "fontFace": "'Segoe UI', wf_segoe-ui_normal, helvetica, arial, sans-serif",
+      "color": "#333333"
+    },
+    "label": {
+      "color": "#333333"
+    },
+    "header": {
+      "color": "#333333"
+    }
+  },
+  "foreground": "#333333",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "visualHeader": [
+          {
+            "show": false
+          }
+        ]
+      }
+    }
+  },
+  "bad": "#FF3E32",
+  "neutral": "#FFEB37",
+  "good": "#6AD774"
+}

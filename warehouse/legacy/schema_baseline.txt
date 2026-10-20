@@ -1,0 +1,117 @@
+Database schema:
+TABLE_SCHEMA	TABLE_NAME	COLUMN_NAME	ORDINAL_POSITION	DATA_TYPE	CHARACTER_MAXIMUM_LENGTH	NUMERIC_PRECISION	NUMERIC_SCALE	IS_NULLABLE
+dbo	Dim_Calendario	Data	1	date	NULL	NULL	NULL	NO
+dbo	Dim_Calendario	Ano	2	int	NULL	10	0	YES
+dbo	Dim_Calendario	Semestre	3	int	NULL	10	0	YES
+dbo	Dim_Calendario	Semestre (Ano)	4	varchar	20	NULL	NULL	YES
+dbo	Dim_Calendario	SemestreAnoId	5	int	NULL	10	0	YES
+dbo	Dim_Calendario	Trimestre	6	int	NULL	10	0	YES
+dbo	Dim_Calendario	Trimestre (Ano)	7	varchar	20	NULL	NULL	YES
+dbo	Dim_Calendario	TrimestreAnoId	8	int	NULL	10	0	YES
+dbo	Dim_Calendario	Mês Nº	9	int	NULL	10	0	YES
+dbo	Dim_Calendario	Mês (Longo)	10	varchar	20	NULL	NULL	YES
+dbo	Dim_Calendario	Mês (Curto)	11	varchar	10	NULL	NULL	YES
+dbo	Dim_Calendario	Mês (Ano)	12	varchar	20	NULL	NULL	YES
+dbo	Dim_Calendario	MesAnoId	13	int	NULL	10	0	YES
+dbo	Dim_Calendario	Dia da Semana	14	varchar	20	NULL	NULL	YES
+dbo	Dim_Calendario	Dia da Semana Nº	15	int	NULL	10	0	YES
+dbo	Dim_Calendario	Tipo de Dia	16	varchar	20	NULL	NULL	YES
+dbo	Dim_Calendario	Mês Relativo	17	int	NULL	10	0	YES
+dbo	Dim_Calendario	Mês Atual	18	varchar	10	NULL	NULL	YES
+dbo	Dim_Calendario	Dia Atual	19	nvarchar	20	NULL	NULL	YES
+dbo	FeriadosPT	Data	1	date	NULL	NULL	NULL	NO
+dbo	FeriadosPT	FeriadoNome	2	varchar	100	NULL	NULL	YES
+dbo	vw_Dim_Calendario	Data	1	date	NULL	NULL	NULL	NO
+dbo	vw_Dim_Calendario	Ano	2	int	NULL	10	0	YES
+dbo	vw_Dim_Calendario	Mês Nº	3	int	NULL	10	0	YES
+dbo	vw_Dim_Calendario	Mês (Curto)	4	varchar	10	NULL	NULL	YES
+dbo	vw_Dim_Calendario	Mês Relativo	5	int	NULL	10	0	YES
+dbo	vw_Dim_Calendario	Mês Atual	6	varchar	10	NULL	NULL	YES
+dbo	vw_Dim_Calendario	Dia Atual	7	nvarchar	20	NULL	NULL	YES
+dbo	vw_Dim_Categoria	Categoria Key	1	int	NULL	10	0	NO
+dbo	vw_Dim_Categoria	Categoria	2	nvarchar	100	NULL	NULL	YES
+dbo	vw_Dim_Categoria	Subcategoria	3	nvarchar	100	NULL	NULL	YES
+dbo	vw_Dim_Categoria	Natureza	4	nvarchar	50	NULL	NULL	YES
+dbo	vw_Dim_Categoria	Prioridade	5	nvarchar	50	NULL	NULL	YES
+dbo	vw_Dim_Categoria	Fonte	6	nvarchar	50	NULL	NULL	YES
+dbo	vw_Dim_Categoria	Ícone SVG	7	nvarchar	-1	NULL	NULL	YES
+dbo	vw_Dim_MetasMensais	Data	1	date	NULL	NULL	NULL	YES
+dbo	vw_Dim_MetasMensais	Pct Poupança	2	decimal	NULL	5	2	YES
+dbo	vw_Dim_MetasMensais	Pct Extras	3	decimal	NULL	5	2	YES
+dbo	vw_Fact_Budget	Categoria Key	1	int	NULL	10	0	NO
+dbo	vw_Fact_Budget	Data	2	date	NULL	NULL	NULL	YES
+dbo	vw_Fact_Budget	Valor Orçamentado (€)	3	decimal	NULL	10	2	YES
+dbo	vw_Fact_DespesasReais	Categoria Key	1	int	NULL	10	0	NO
+dbo	vw_Fact_DespesasReais	Data	2	date	NULL	NULL	NULL	YES
+dbo	vw_Fact_DespesasReais	Valor Gasto (€)	3	decimal	NULL	10	2	YES
+dbo	vw_Fact_DespesasReais	Descrição	4	nvarchar	255	NULL	NULL	YES
+dbo	vw_Fact_Obras	Categoria Key	1	int	NULL	10	0	NO
+dbo	vw_Fact_Obras	Data	2	date	NULL	NULL	NULL	YES
+dbo	vw_Fact_Obras	Valor Gasto (€)	3	decimal	NULL	10	2	YES
+dbo	vw_Fact_Obras	Descrição	4	nvarchar	255	NULL	NULL	YES
+dbo	vw_Fact_Receitas	Categoria Key	1	int	NULL	10	0	NO
+dbo	vw_Fact_Receitas	Data	2	date	NULL	NULL	NULL	YES
+dbo	vw_Fact_Receitas	Valor Recebido (€)	3	decimal	NULL	10	2	YES
+dbo	vw_Fact_Receitas	Descrição	4	nvarchar	255	NULL	NULL	YES
+dbo	vw_Fact_Saldos	Categoria Key	1	int	NULL	10	0	NO
+dbo	vw_Fact_Saldos	Data	2	date	NULL	NULL	NULL	YES
+dbo	vw_Fact_Saldos	Valor Real (€)	3	decimal	NULL	10	2	YES
+dbo	vw_Fact_Saldos	Descrição	4	nvarchar	255	NULL	NULL	YES
+dbo	vw_Meta_Controlo	Modulo	1	nvarchar	50	NULL	NULL	YES
+dbo	vw_Meta_Controlo	Última Atualização	2	datetime	NULL	NULL	NULL	YES
+dw	Dim_Categoria	ID_Categoria	1	int	NULL	10	0	NO
+dw	Dim_Categoria	Categoria	2	nvarchar	100	NULL	NULL	YES
+dw	Dim_Categoria	Subcategoria	3	nvarchar	100	NULL	NULL	YES
+dw	Dim_Categoria	Natureza	4	nvarchar	50	NULL	NULL	YES
+dw	Dim_Categoria	Prioridade	5	nvarchar	50	NULL	NULL	YES
+dw	Dim_Categoria	Fonte	6	nvarchar	50	NULL	NULL	YES
+dw	Dim_Categoria	Icone_SVG	7	nvarchar	-1	NULL	NULL	YES
+dw	Dim_MetasMensais	Ano	1	int	NULL	10	0	YES
+dw	Dim_MetasMensais	Mes	2	int	NULL	10	0	YES
+dw	Dim_MetasMensais	Pct_Poupanca	3	decimal	NULL	5	2	YES
+dw	Dim_MetasMensais	Pct_Extras	4	decimal	NULL	5	2	YES
+dw	Dim_MetasMensais	DtCarga	5	datetime	NULL	NULL	NULL	YES
+dw	Fact_Budget	ID_Budget	1	int	NULL	10	0	NO
+dw	Fact_Budget	ID_Categoria	2	int	NULL	10	0	NO
+dw	Fact_Budget	Data_Referencia	3	date	NULL	NULL	NULL	YES
+dw	Fact_Budget	Valor	4	decimal	NULL	10	2	YES
+dw	Fact_DespesasReais	ID_Despesa	1	int	NULL	10	0	NO
+dw	Fact_DespesasReais	ID_Categoria	2	int	NULL	10	0	NO
+dw	Fact_DespesasReais	Data_Despesa	3	date	NULL	NULL	NULL	YES
+dw	Fact_DespesasReais	Valor	4	decimal	NULL	10	2	YES
+dw	Fact_DespesasReais	Descricao	5	nvarchar	255	NULL	NULL	YES
+dw	Fact_DespesasReais	Carimbo_Original	6	nvarchar	100	NULL	NULL	YES
+dw	Fact_Obras	ID_Obra	1	int	NULL	10	0	NO
+dw	Fact_Obras	ID_Categoria	2	int	NULL	10	0	NO
+dw	Fact_Obras	Data_Despesa	3	date	NULL	NULL	NULL	YES
+dw	Fact_Obras	Valor	4	decimal	NULL	10	2	YES
+dw	Fact_Obras	Descricao	5	nvarchar	255	NULL	NULL	YES
+dw	Fact_Obras	Carimbo_Original	6	nvarchar	100	NULL	NULL	YES
+dw	Fact_Receitas	ID_Receita	1	int	NULL	10	0	NO
+dw	Fact_Receitas	ID_Categoria	2	int	NULL	10	0	NO
+dw	Fact_Receitas	Data_Receita	3	date	NULL	NULL	NULL	YES
+dw	Fact_Receitas	Valor	4	decimal	NULL	10	2	YES
+dw	Fact_Receitas	Descricao	5	nvarchar	255	NULL	NULL	YES
+dw	Fact_Receitas	Carimbo_Original	6	nvarchar	100	NULL	NULL	YES
+dw	Fact_Saldos	ID_Saldo	1	int	NULL	10	0	NO
+dw	Fact_Saldos	ID_Categoria	2	int	NULL	10	0	NO
+dw	Fact_Saldos	Data_Saldo	3	date	NULL	NULL	NULL	YES
+dw	Fact_Saldos	Valor	4	decimal	NULL	10	2	YES
+dw	Fact_Saldos	Descricao	5	nvarchar	255	NULL	NULL	YES
+dw	Fact_Saldos	Carimbo_Original	6	nvarchar	100	NULL	NULL	YES
+dw	Meta_Controlo	Modulo	1	nvarchar	50	NULL	NULL	YES
+dw	Meta_Controlo	Ultima_Atualizacao	2	datetime	NULL	NULL	NULL	YES
+stg	Budget	Categoria	1	nvarchar	100	NULL	NULL	YES
+stg	Budget	Subcategoria	2	nvarchar	100	NULL	NULL	YES
+stg	Budget	Prioridade	3	nvarchar	50	NULL	NULL	YES
+stg	Budget	Natureza	4	nvarchar	50	NULL	NULL	YES
+stg	Budget	Fonte	5	nvarchar	50	NULL	NULL	YES
+stg	Budget	Mes	6	nvarchar	20	NULL	NULL	YES
+stg	Budget	Valor	7	decimal	NULL	10	2	YES
+stg	Budget	Ano	8	int	NULL	10	0	YES
+stg	Budget	DtCarga	9	datetime	NULL	NULL	NULL	YES
+stg	DespesasReais	Carimbo	1	nvarchar	100	NULL	NULL	YES
+stg	DespesasReais	Data_Despesa	2	nvarchar	50	NULL	NULL	YES
+stg	DespesasReais	Valor	3	nvarchar	50	NULL	NULL	YES
+stg	DespesasReais	Categoria_Full	4	nvarchar	200	NULL	NULL	YES
+stg	DespesasReais	Descricao	5	nvarchar	255	NULL	NULL	YES
