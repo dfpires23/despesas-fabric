@@ -12,7 +12,8 @@ A personal project migrating a local SQL Server home expense pipeline to a cloud
 
 ## 🚀 Project Status
 - ✅ **Phase 0 (Baseline): Completed.** Legacy local SQL Server and Python ETL codebase committed as the starting point.
-- ⏳ **Phase 1 (Foundation): Up next.** Core migration to Microsoft Fabric (Warehouse, Notebooks, Pipelines, and Power BI).
+- ✅ **Phase 1 (Foundation): Completed.** Core migration to Microsoft Fabric (Warehouse, Notebooks, Pipelines, and Power BI).
+- ⏳ **Phase 2 (Modernization): Up next.** Focused on Lakehouse architecture, PySpark, and real-time notifications.
 
 ## 📖 Documentation
 For the full architecture, migration plan, and roadmap, see **[docs/architecture.md](docs/architecture.md)**.
