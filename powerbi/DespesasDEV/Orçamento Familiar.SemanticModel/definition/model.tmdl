@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_QueryOrder = ["ServerName","DatabaseName","_calcs","Budget","Calendário","Categoria","Despesas Reais","Metas Mensais","Obras","Receitas","Saldos"]
+
+annotation PBI_ProTooling = ["DevMode","TMDLView_Desktop","DaxQueryView_Desktop"]
+
+annotation __TEdtr = 1
+
+ref table _calcs
+ref table Budget
+ref table Calendário
+ref table Categoria
+ref table 'Despesas Reais'
+ref table Receitas
+ref table 'Metas Mensais'
+ref table Obras
+ref table Saldos
+ref table Param_Categ\SubCateg
+ref table Param_PlanoAnual
+
+ref cultureInfo en-US
+

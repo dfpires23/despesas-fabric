@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.2.0/schema.json",
+  "position": {
+    "x": 72,
+    "y": 0,
+    "z": 3000,
+    "height": 80,
+    "width": 252,
+    "tabOrder": 6000
+  },
+  "objects": {
+    "values": [],
+    "general": [
+      {
+        "properties": {
+          "paragraphs": [
+            {
+              "textRuns": [
+                {
+                  "value": {
+                    "propertyIdentifier": {
+                      "objectName": "values",
+                      "propertyName": "expr"
+                    },
+                    "selector": {
+                      "id": "Categ"
+                    }
+                  },
+                  "textStyle": {
+                    "fontFamily": "Segoe UI Semibold",
+                    "fontSize": "12pt"
+                  }
+                }
+              ]
+            },
+            {
+              "textRuns": [
+                {
+                  "value": "Categoria",
+                  "textStyle": {
+                    "fontFamily": "Segoe UI Light",
+                    "color": "#9c9c9c"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "visualContainerObjects": {
+    "background": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "padding": [
+      {
+        "properties": {
+          "top": {
+            "expr": {
+              "Literal": {
+                "Value": "20D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}

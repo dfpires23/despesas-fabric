@@ -1,0 +1,62 @@
+table Obras
+	lineageTag: 925ea09b-ec6c-4b2d-9d2a-fb6e5c5f8c26
+
+	column 'Categoria Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 629b27b1-5d12-4995-8a51-67161369bd05
+		summarizeBy: none
+		sourceColumn: Categoria Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		isHidden
+		formatString: dd-mm-yyyy
+		lineageTag: 2d61cd05-d6ca-4a8c-ba2b-b3205bd36a40
+		summarizeBy: none
+		sourceColumn: Data
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Valor Gasto (€)'
+		dataType: double
+		lineageTag: f22cf846-d883-4b12-a629-95423ac338a3
+		summarizeBy: none
+		sourceColumn: Valor Gasto (€)
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descrição
+		dataType: string
+		lineageTag: 90453c6c-d4ed-4e47-8d0f-163f3eb1e6b4
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Obras = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Fact_Obras = Source{[Schema="dbo",Item="vw_Fact_Obras"]}[Data]
+				in
+				    dbo_vw_Fact_Obras
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

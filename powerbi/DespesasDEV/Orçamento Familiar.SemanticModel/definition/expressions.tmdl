@@ -1,0 +1,14 @@
+expression ServerName = "gkjyvgi5rhzeljxvqmxd3rabsm-oniwwvj725leljwmocd4wcibsy.datawarehouse.fabric.microsoft.com" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 5cd3ba8f-0ad2-493e-a7b3-13ac078a66ce
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
+expression DatabaseName = "GestaoDespesasDW" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 81ae584b-c6bd-4319-a75b-1edf620d6243
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+
