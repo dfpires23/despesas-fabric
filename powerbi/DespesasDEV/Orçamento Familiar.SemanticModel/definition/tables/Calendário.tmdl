@@ -1,0 +1,91 @@
+table Calendário
+	lineageTag: 68c29e81-ea75-4c9c-bf49-3fb012d62270
+	dataCategory: Time
+
+	column Data
+		dataType: dateTime
+		isKey
+		formatString: dd-mm-yyyy
+		lineageTag: f521461b-cdc1-4775-8b5c-7aeeac5a1cdd
+		summarizeBy: none
+		sourceColumn: Data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 050106f3-d12d-4e9e-8dd5-eaae65a63dfe
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = User
+
+	column 'Mês Nº'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1ab7418a-a7d5-486f-8e24-fd8a215af155
+		summarizeBy: none
+		sourceColumn: Mês Nº
+
+		annotation SummarizationSetBy = User
+
+	column 'Mês (Curto)'
+		dataType: string
+		lineageTag: 1d8597a8-3ca8-4046-a1b2-237b3a535170
+		summarizeBy: none
+		sourceColumn: Mês (Curto)
+		sortByColumn: 'Mês Nº'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Relativo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5accb9ea-57df-4c88-8899-931079234787
+		summarizeBy: none
+		sourceColumn: Mês Relativo
+
+		annotation SummarizationSetBy = User
+
+	column 'Mês Atual'
+		dataType: string
+		lineageTag: abbaef63-1a1c-4886-b393-d8638b8902c9
+		summarizeBy: none
+		sourceColumn: Mês Atual
+		sortByColumn: 'Mês Relativo'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dia Atual'
+		dataType: string
+		lineageTag: 8030cdaa-6d75-4b2d-9a55-94d91037a74d
+		summarizeBy: none
+		sourceColumn: Dia Atual
+		sortByColumn: Data
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendário = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Dim_Calendario = Source{[Schema="dbo",Item="vw_Dim_Calendario"]}[Data]
+				in
+				    dbo_vw_Dim_Calendario
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

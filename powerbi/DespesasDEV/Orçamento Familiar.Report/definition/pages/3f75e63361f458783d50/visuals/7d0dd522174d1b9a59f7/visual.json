@@ -1,0 +1,91 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "7d0dd522174d1b9a59f7",
+  "position": {
+    "x": 848,
+    "y": 0,
+    "z": 10000,
+    "height": 576,
+    "width": 784,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Calendário"
+                    }
+                  },
+                  "Property": "Mês Nº"
+                }
+              },
+              "queryRef": "Calendário.Mês Nº",
+              "nativeQueryRef": "Mês Nº",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Real - Saldo Calc (YTD)"
+                }
+              },
+              "queryRef": "_calcs.€ Real - Saldo Calc (YTD)",
+              "nativeQueryRef": "€ Saldo Teórico",
+              "displayName": "€ Saldo Teórico"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Budget - Saldo (YTD)"
+                }
+              },
+              "queryRef": "_calcs.€ Budget - Saldo (YTD)",
+              "nativeQueryRef": "€ Budget - Poupança",
+              "displayName": "€ Budget - Poupança"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_calcs"
+                  }
+                },
+                "Property": "€ Real - Saldo Calc (YTD)"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

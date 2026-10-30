@@ -1,0 +1,54 @@
+table 'Metas Mensais'
+	lineageTag: 44dd602e-2537-4f74-8757-f7985aa52323
+
+	column Data
+		dataType: dateTime
+		isHidden
+		formatString: dd-mm-yyyy
+		lineageTag: a13343c2-bed7-4c81-a832-9d1f7cb34b91
+		summarizeBy: none
+		sourceColumn: Data
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Pct Poupança'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2d1a6590-b467-4639-98e7-118fe7268e95
+		summarizeBy: none
+		sourceColumn: Pct Poupança
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column 'Pct Extras'
+		dataType: double
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7e9f81f2-25c4-49a2-b956-12d64f1a6b26
+		summarizeBy: none
+		sourceColumn: Pct Extras
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	partition 'Metas Mensais' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Dim_MetasMensais = Source{[Schema="dbo",Item="vw_Dim_MetasMensais"]}[Data]
+				in
+				    dbo_vw_Dim_MetasMensais
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

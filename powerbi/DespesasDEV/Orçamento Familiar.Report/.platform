@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Orçamento Familiar"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "609c3a8b-4934-439c-9e03-b674c5fe595f"
+  }
+}

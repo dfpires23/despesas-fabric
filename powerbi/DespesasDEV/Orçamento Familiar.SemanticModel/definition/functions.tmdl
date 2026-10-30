@@ -1,0 +1,61 @@
+/// Calcula a taxa de crescimento segura. Trata divisão por zero (retorna 1 ou 0) para evitar erros de infinito.
+function fn_SafeGrowth = ```
+		( p_valor_ant : anyval, p_valor_var : anyval ) => 
+		        IF( p_valor_ant = 0 || ISBLANK(p_valor_ant)
+		            , IF( p_valor_var > 0, 1, 0 )
+		            , DIVIDE( p_valor_var, p_valor_ant, BLANK() ) 
+		        )
+		```
+	lineageTag: 30425f2e-34c3-4a00-a0e9-a2821d9fbb70
+
+/// Devolve Vermelho/Verde consoante o modo.
+/// "Teto" : Perigo se Valor >= 1.
+/// "Piso" : Perigo se Valor < 0.
+/// "Variacao" : Perigo se Valor > 0.
+function fn_GetColor = ```
+		( p_valor : anyval, p_modo : anyval) => 
+		        SWITCH( TRUE()
+		            , p_modo = "Teto" && p_valor >= 1, "#FF3E32"
+		            , p_modo = "Piso" && p_valor < 0, "#FF3E32"
+		            , p_modo = "Variacao" && p_valor > 0, "#FF3E32"
+		            , "#6AD774"
+		        )
+		```
+	lineageTag: 97ac604f-4d70-44cf-9e30-c20dba158b59
+
+/// Lista todas as despesas/receitas individuais que compõem o saldo, incluindo a descrição, valor e categorias (Prioridade, Fonte, Natureza).
+function fn_DescriptiveTooltip = ```
+		( p_valor : anyval, p_table : anyref, p_col_desc : anyref, p_col_val : anyref ) => 
+		        VAR __NumCompras = COUNTROWS( p_table )
+		        VAR __Quebra = UNICHAR(10)
+		        VAR __NivelLinha = HASONEVALUE( 'Categoria'[Subcategoria] )
+		        
+		        VAR __Prioridade = CONCATENATEX( VALUES(Categoria[Prioridade]), Categoria[Prioridade], ", " )
+		        VAR __Fonte = CONCATENATEX( VALUES(Categoria[Fonte]), Categoria[Fonte], ", " )
+		        VAR __Natureza = CONCATENATEX( VALUES(Categoria[Natureza]), Categoria[Natureza], ", " )
+		        
+		        VAR __Resultado =
+		            IF(
+		                NOT __NivelLinha || __NumCompras = 0,
+		                    "Resumo do Dia: " & __NumCompras & " compras" & __Quebra &
+		                    "Total: " & FORMAT(p_valor, "#,0.00 €"),
+		                    CONCATENATEX(
+		                        p_table,
+		                            VAR __Desc = p_col_desc
+		                            VAR __DescFinal = IF( ISBLANK(__Desc) || __Desc = "", "(Sem descrição)", __Desc )
+		                            RETURN
+		                                __DescFinal & " ( " & FORMAT(p_col_val, "#,0.00 €") & " )",
+		                            __Quebra,
+		                            p_col_val, DESC
+		                    )
+		            )
+		        
+		        RETURN
+		            __Resultado & __Quebra &
+		            "----------------" & __Quebra &
+		            "Prioridade: " & __Prioridade & __Quebra &
+		            "Fonte: " & __Fonte & __Quebra &
+		            "Natureza: " & __Natureza
+		```
+	lineageTag: 2ba3ef3d-89e2-42bc-8456-e0dc4358e064
+

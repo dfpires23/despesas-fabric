@@ -1,0 +1,48 @@
+table Param_Categ\SubCateg
+	lineageTag: a5eafb0e-bce1-4ed4-9a61-e8cbfffc3f8a
+
+	column Param_Categ\SubCateg
+		lineageTag: f766ff89-33e3-47b8-a830-65cab8d6dbbf
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Param_Categ\SubCateg Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Param_Categ\SubCateg Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Param_Categ\SubCateg Fields'
+		isHidden
+		lineageTag: b65b8f54-0606-45f7-9a39-300261fc50c2
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Param_Categ\SubCateg Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Param_Categ\SubCateg Order'
+		isHidden
+		formatString: 0
+		lineageTag: ecabb852-1e04-4fb4-aa07-6cf578d31f57
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = User
+
+	partition Param_Categ\SubCateg = calculated
+		mode: import
+		source =
+				{
+				    ("Categoria", NAMEOF('Categoria'[Categoria]), 0),
+				    ("Subcategoria", NAMEOF('Categoria'[Subcategoria]), 1)
+				}
+
+	annotation PBI_Id = 441629724df045a1aa34702f989b056f
+

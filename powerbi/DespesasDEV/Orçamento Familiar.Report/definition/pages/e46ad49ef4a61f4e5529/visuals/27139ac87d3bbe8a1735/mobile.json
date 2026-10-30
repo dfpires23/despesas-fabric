@@ -1,0 +1,307 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.3.0/schema.json",
+  "position": {
+    "x": 18,
+    "y": 320,
+    "z": 4000,
+    "height": 420,
+    "width": 288,
+    "tabOrder": 3000
+  },
+  "objects": {
+    "columnWidth": [
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "142D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "Calendário.Dia Atual"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "116D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.€ Real - Despesas"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "120D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.€ Real - Receitas"
+        }
+      }
+    ],
+    "columnHeaders": [
+      {
+        "properties": {
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "fontFamily": {
+            "expr": {
+              "Literal": {
+                "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+              }
+            }
+          },
+          "fontColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#31345D'"
+                  }
+                }
+              }
+            }
+          },
+          "outlineStyle": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "alignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Right'"
+              }
+            }
+          },
+          "autoSizeColumnWidth": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "titleAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Center'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "values": [
+      {
+        "properties": {
+          "backColorSecondary": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "rowHeaders": [
+      {
+        "properties": {
+          "showExpandCollapseButtons": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "outlineStyle": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "grid": [
+      {
+        "properties": {
+          "rowPadding": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "textSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "columnFormatting": [
+      {
+        "properties": {
+          "styleHeader": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "styleSubtotals": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "styleValues": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "alignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Right'"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.€ Real - Despesas"
+        }
+      }
+    ],
+    "subTotals": [
+      {
+        "properties": {
+          "perRowLevel": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      },
+      {
+        "properties": {
+          "levelSubtotalEnabled": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "Categoria.Subcategoria"
+        }
+      }
+    ]
+  },
+  "visualContainerObjects": {
+    "title": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'€ Receitas'"
+              }
+            }
+          },
+          "fontFamily": {
+            "expr": {
+              "Literal": {
+                "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "12D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "border": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "radius": {
+            "expr": {
+              "Literal": {
+                "Value": "12D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "visualTooltip": []
+  }
+}

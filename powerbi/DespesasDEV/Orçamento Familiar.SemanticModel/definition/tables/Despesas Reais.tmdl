@@ -1,0 +1,62 @@
+table 'Despesas Reais'
+	lineageTag: fcb5238a-572f-494e-ad07-d9aa65e19812
+
+	column 'Categoria Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 132107e4-89e8-493d-b5f8-f30162c2f65b
+		summarizeBy: none
+		sourceColumn: Categoria Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Data
+		dataType: dateTime
+		isHidden
+		formatString: dd-mm-yyyy
+		lineageTag: 793e9fb8-d050-4aa0-a6de-12588ae02e9f
+		summarizeBy: none
+		sourceColumn: Data
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Valor Gasto (€)'
+		dataType: double
+		lineageTag: 30c2f984-25f3-483a-a2b1-d004d9ab8d2b
+		summarizeBy: none
+		sourceColumn: Valor Gasto (€)
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descrição
+		dataType: string
+		lineageTag: db84503d-1000-426b-9a85-68fe7ec8af79
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Despesas Reais' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Fact_DespesasReais = Source{[Schema="dbo",Item="vw_Fact_DespesasReais"]}[Data]
+				in
+				    dbo_vw_Fact_DespesasReais
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

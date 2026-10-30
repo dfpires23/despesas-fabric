@@ -1,0 +1,44 @@
+relationship AutoDetected_8fd514a6-b55a-46ce-8ccc-a3ae38b5bbf1
+	fromColumn: Budget.'Categoria Key'
+	toColumn: Categoria.'Categoria Key'
+
+relationship AutoDetected_1a6d2e7e-fcfe-4fef-b855-a44bf2a36aec
+	fromColumn: 'Despesas Reais'.'Categoria Key'
+	toColumn: Categoria.'Categoria Key'
+
+relationship AutoDetected_6ca6fb0f-c8e3-48a8-960b-dd4fe51a1475
+	fromColumn: Receitas.'Categoria Key'
+	toColumn: Categoria.'Categoria Key'
+
+relationship dc3c67eb-523e-eab5-2fec-cb20bcdc14e3
+	fromColumn: Budget.Data
+	toColumn: Calendário.Data
+
+relationship 149c0950-d0cd-9f98-f78e-95e3ae8b196a
+	fromColumn: 'Despesas Reais'.Data
+	toColumn: Calendário.Data
+
+relationship ae00ca35-938b-9998-dd79-62adcc42be0b
+	fromColumn: Receitas.Data
+	toColumn: Calendário.Data
+
+relationship bf091375-7d6c-4fcb-8eb2-9535af7f944d
+	fromColumn: 'Metas Mensais'.Data
+	toColumn: Calendário.Data
+
+relationship e6e0e33f-94f4-be13-9f2a-4b4e2752b0f9
+	fromColumn: Obras.Data
+	toColumn: Calendário.Data
+
+relationship 5d94625e-2f48-fce8-6c44-ef935e395def
+	fromColumn: Obras.'Categoria Key'
+	toColumn: Categoria.'Categoria Key'
+
+relationship 3c6d918a-792f-21f5-f826-2a02ec600f0c
+	fromColumn: Saldos.Data
+	toColumn: Calendário.Data
+
+relationship c90c30c7-904d-4060-0d3c-c9444580c85c
+	fromColumn: Saldos.'Categoria Key'
+	toColumn: Categoria.'Categoria Key'
+

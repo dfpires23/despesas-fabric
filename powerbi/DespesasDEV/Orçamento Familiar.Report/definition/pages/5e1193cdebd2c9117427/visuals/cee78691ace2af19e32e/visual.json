@@ -1,0 +1,92 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "cee78691ace2af19e32e",
+  "position": {
+    "x": 960,
+    "y": 216,
+    "z": 5000,
+    "height": 288,
+    "width": 336,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "gauge",
+    "query": {
+      "queryState": {
+        "MaxValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Budget - Total"
+                }
+              },
+              "queryRef": "_calcs.€ Budget - Total",
+              "nativeQueryRef": "€ Budget - Total"
+            }
+          ]
+        },
+        "TargetValue": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Budget - Extras"
+                }
+              },
+              "queryRef": "_calcs.€ Budget - Extras",
+              "nativeQueryRef": "€ Budget - Extras"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_calcs"
+                    }
+                  },
+                  "Property": "€ Real - Despesas Extras"
+                }
+              },
+              "queryRef": "_calcs.€ Real - Despesas Extras",
+              "nativeQueryRef": "€ Real - Despesas Extras"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_calcs"
+                  }
+                },
+                "Property": "€ Real - Despesas Extras"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

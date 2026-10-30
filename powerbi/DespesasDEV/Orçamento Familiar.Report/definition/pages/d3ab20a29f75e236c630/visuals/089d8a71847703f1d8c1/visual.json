@@ -1,0 +1,45 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "089d8a71847703f1d8c1",
+  "position": {
+    "x": 1656,
+    "y": 168,
+    "z": 1000,
+    "height": 96,
+    "width": 240,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "textSlicer",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Despesas Reais"
+                    }
+                  },
+                  "Property": "Descrição"
+                }
+              },
+              "queryRef": "Despesas Reais.Descrição",
+              "nativeQueryRef": "Descrição"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "general": [
+        {
+          "properties": {}
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,72 @@
+table Param_PlanoAnual
+	lineageTag: 0268097b-f74e-4867-ba6e-62134ccea530
+
+	column Param_PlanoAnual
+		lineageTag: f78b92da-57e6-4f36-81bb-dfa86cf03365
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Param_PlanoAnual Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Param_PlanoAnual Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Param_PlanoAnual Fields'
+		isHidden
+		lineageTag: be7e3f8f-ed08-4f10-bcf6-8d8355614aa1
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Param_PlanoAnual Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Param_PlanoAnual Order'
+		isHidden
+		formatString: 0
+		lineageTag: 46bace14-a488-4ddd-8420-5695c1742a08
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Grupo
+		lineageTag: 973eb2cc-086c-403c-a061-ce796211166d
+		summarizeBy: none
+		sourceColumn: [Value4]
+		sortByColumn: GrupoOrder
+
+		annotation SummarizationSetBy = Automatic
+
+	column GrupoOrder
+		isHidden
+		formatString: 0
+		lineageTag: edd8ad43-596d-43f6-a0dc-785f558fcbc7
+		summarizeBy: none
+		sourceColumn: [Value5]
+
+		annotation SummarizationSetBy = User
+
+	partition Param_PlanoAnual = calculated
+		mode: import
+		source =
+				{
+				    ("€ Budget", NAMEOF('_calcs'[€ Budget - Essenciais]), 0, "Essencial", 0),
+				    ("€ Real", NAMEOF('_calcs'[€ Real - Despesas Essenciais]), 1, "Essencial", 0),
+				    ("€ Desvio", NAMEOF([€ Var - Essenciais (vs Bud)]), 2, "Essencial", 0),
+				    ("€ Budget", NAMEOF('_calcs'[€ Budget - Extras]), 3, "Extra", 1),
+				    ("€ Real", NAMEOF('_calcs'[€ Real - Despesas Extras]), 4, "Extra", 1),
+				    ("€ Desvio", NAMEOF([€ Var - Extras (vs Bud)]), 5, "Extra", 1),
+				    ("€ Budget", NAMEOF('_calcs'[€ Budget - Poupança (YTD)]), 6, "Poupança", 2),
+				    ("€ Real", NAMEOF('_calcs'[€ Real - Poupança (YTD)]), 7, "Poupança", 2),
+				    ("€ Desvio", NAMEOF([€ Var - Poupança (vs Bud YTD)]), 8, "Poupança", 2)
+				}
+
+	annotation PBI_Id = 4093c4cff9cd4743a1d93704ef022485
+

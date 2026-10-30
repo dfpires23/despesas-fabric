@@ -1,0 +1,393 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainerMobileState/2.4.0/schema.json",
+  "position": {
+    "x": 18,
+    "y": 820,
+    "z": 3000,
+    "height": 420,
+    "width": 288,
+    "tabOrder": 4000
+  },
+  "objects": {
+    "columnWidth": [
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "122D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "Calendário.Data"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "71D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.€ Real - Despesas"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "100D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "Categoria.Subcategoria"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "100D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "Categoria.Categoria"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "36D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "Categoria.Ícone SVG"
+        }
+      },
+      {
+        "properties": {
+          "value": {
+            "expr": {
+              "Literal": {
+                "Value": "51D"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.% Var - Despesas (MoM)"
+        }
+      }
+    ],
+    "columnHeaders": [
+      {
+        "properties": {
+          "outlineStyle": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "fontFamily": {
+            "expr": {
+              "Literal": {
+                "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+              }
+            }
+          },
+          "autoSizeColumnWidth": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "outlineColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#31345D'"
+                  }
+                }
+              }
+            }
+          },
+          "columnAdjustment": {
+            "expr": {
+              "Literal": {
+                "Value": "'fitToContent'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "grid": [
+      {
+        "properties": {
+          "textSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "rowPadding": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "imageHeight": {
+            "expr": {
+              "Literal": {
+                "Value": "25D"
+              }
+            }
+          },
+          "imageWidth": {
+            "expr": {
+              "Literal": {
+                "Value": "25D"
+              }
+            }
+          },
+          "gridHorizontal": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "columnFormatting": [
+      {
+        "properties": {
+          "styleHeader": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "alignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Right'"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.€ Real - Despesas"
+        }
+      },
+      {
+        "properties": {
+          "styleTotal": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "styleHeader": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "styleValues": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "alignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Right'"
+              }
+            }
+          }
+        },
+        "selector": {
+          "metadata": "_calcs.% Var - Despesas (MoM)"
+        }
+      }
+    ],
+    "total": [
+      {
+        "properties": {
+          "totals": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "label": {
+            "expr": {
+              "Literal": {
+                "Value": "'Total'"
+              }
+            }
+          },
+          "fontColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#333333'"
+                  }
+                }
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "8D"
+              }
+            }
+          },
+          "outlineStyle": {
+            "expr": {
+              "Literal": {
+                "Value": "1D"
+              }
+            }
+          },
+          "outlineColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#31345D'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "values": [
+      {
+        "properties": {
+          "backColorSecondary": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualContainerObjects": {
+    "border": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          },
+          "radius": {
+            "expr": {
+              "Literal": {
+                "Value": "12D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "title": [
+      {
+        "properties": {
+          "show": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          },
+          "text": {
+            "expr": {
+              "Literal": {
+                "Value": "'€ Despesas'"
+              }
+            }
+          },
+          "fontFamily": {
+            "expr": {
+              "Literal": {
+                "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+              }
+            }
+          },
+          "fontSize": {
+            "expr": {
+              "Literal": {
+                "Value": "12D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "visualTooltip": []
+  }
+}

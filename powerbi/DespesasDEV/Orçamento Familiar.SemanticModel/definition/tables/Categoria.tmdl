@@ -1,0 +1,77 @@
+table Categoria
+	lineageTag: fcf4535d-c0e3-463d-8f11-df942b898dc8
+
+	column 'Categoria Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8b7ffac9-d239-4c78-a8e6-ba2a5ee6490e
+		summarizeBy: none
+		sourceColumn: Categoria Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: 5d4adc86-1e12-48ed-9fc0-ae912978de2a
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subcategoria
+		dataType: string
+		lineageTag: f3d06915-8122-44a8-8d8d-f7de67ad2c87
+		summarizeBy: none
+		sourceColumn: Subcategoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column Natureza
+		dataType: string
+		lineageTag: 304b93b2-e4a7-4156-b264-dda8b7662376
+		summarizeBy: none
+		sourceColumn: Natureza
+
+		annotation SummarizationSetBy = Automatic
+
+	column Prioridade
+		dataType: string
+		lineageTag: 28d4f381-f1f3-411d-b53a-0f300432cef3
+		summarizeBy: none
+		sourceColumn: Prioridade
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fonte
+		dataType: string
+		lineageTag: cc619bd7-b710-48d7-8d3d-7381ac1224ed
+		summarizeBy: none
+		sourceColumn: Fonte
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ícone SVG'
+		dataType: string
+		lineageTag: 5cb4e52c-3d58-4c02-8b41-a0f60a4ed390
+		dataCategory: ImageUrl
+		summarizeBy: none
+		sourceColumn: Ícone SVG
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Categoria = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Dim_Categoria = Source{[Schema="dbo",Item="vw_Dim_Categoria"]}[Data]
+				in
+				    dbo_vw_Dim_Categoria
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

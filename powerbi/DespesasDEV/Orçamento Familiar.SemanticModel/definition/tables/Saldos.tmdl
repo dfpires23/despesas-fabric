@@ -1,0 +1,62 @@
+table Saldos
+	lineageTag: bc17312d-1765-4ae7-a4cb-f958b5dca7d7
+
+	column 'Categoria Key'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 46a01572-0ddb-483c-b9b6-c59f4ffc4522
+		summarizeBy: none
+		sourceColumn: Categoria Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = User
+
+	column Data
+		dataType: dateTime
+		isHidden
+		formatString: dd-mm-yyyy
+		lineageTag: 6e6bdaea-d0fb-4254-a29d-bf79d9a00d50
+		summarizeBy: none
+		sourceColumn: Data
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Valor Real (€)'
+		dataType: double
+		lineageTag: 4857ac5c-7120-45df-bd7c-46696c59f419
+		summarizeBy: none
+		sourceColumn: Valor Real (€)
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Descrição
+		dataType: string
+		lineageTag: d5d194d8-301a-4987-8c47-2e1213fed0f1
+		summarizeBy: none
+		sourceColumn: Descrição
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Saldos = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Database(ServerName, DatabaseName),
+				    dbo_vw_Fact_Saldos = Source{[Schema="dbo",Item="vw_Fact_Saldos"]}[Data]
+				in
+				    dbo_vw_Fact_Saldos
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
